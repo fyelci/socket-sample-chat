@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <title>Socket.IO chat</title>
+  <link type="text/css" rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+  <div class="row">
+    <div class="connected-user-and-channel-list">
+      <ul class="channel-list">
+        <li class="title">Channel List <span>New Channel</span></li>
+        <li class="active" data-thread-type="channel" data-channel="public">#public</li>
+        <li data-thread-type="channel" data-channel="web">#web</li>
+      </ul>
+      <ul class="user-list">
+        <li class="title">Connected Users</li>
+      </ul>
+    </div>
+
+    <div class="messaging-body">
+
+      <form action="" class="join-chat-form">
+        <input id="nickname" autocomplete="off" /><button>Join</button>
+      </form>
+
+      <ul class="user-list">
+      </ul>
+      <ul id="messages"></ul>
+      <ul id="user-is-typing"></ul>
+    </div>
+
+    <form action="" class="send-message-form">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="/chat.js"></script>
+
+</body>
+</html>
