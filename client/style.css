@@ -1,12 +1,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font: 13px Helvetica, Arial; }
 
-.row {
-}
-
 .connected-user-and-channel-list {
-  width: 20%;
-  float: left;
   padding: 20px;
   border: solid 1px;
 }
@@ -30,15 +25,7 @@ body { font: 13px Helvetica, Arial; }
   font-weight: bold;
 }
 
-.connected-user-and-channel-list .title>span {
-  float: right;
-  background-color: green;
-  padding: 5px;
-}
-
 .messaging-body {
-  width: 80%;
-  float: right;
   padding: 20px;
 }
 
@@ -53,8 +40,8 @@ body { font: 13px Helvetica, Arial; }
 .join-chat-form .disabled-button {background-color:gray}
 
 
-.messages-body .thread {visibility: hidden;}
-.messages-body .thread.active {visibility: visible;}
+.messages-body .thread {display: none;}
+.messages-body .thread.active {display: block;}
 .messages-body .thread { list-style-type: none; margin: 0; padding: 0; }
 .messages-body .thread li { padding: 5px 10px; }
 .messages-body .thread li:nth-child(odd) { background: #eee; }

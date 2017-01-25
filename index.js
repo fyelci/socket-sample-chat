@@ -45,16 +45,19 @@ io.on('connection', function(socket){
   });
 
   socket.on('join to room', function(message) {
-    var roomName = 'channel-' + message.name;
-    if (message.type === 'channel' && socket.rooms[roomName] === undefined) {
-      console.log('message: ' + message.userName + ' joined to room: ' + message.name);
-      socket.join(roomName);
-      socket.broadcast.emit('joined to room', message);
+    if (message.type === 'channel') {
+      var roomName = 'channel-' + message.name;
+      if (socket.rooms[roomName] === undefined) {
+        console.log('message: ' + message.userName + ' joined to room: ' + message.name);
+        socket.join(roomName);
+        socket.broadcast.emit('joined to room', message);
+      }
     }
+
   });
 
   socket.on('chat message', function(message){
-    var roomName = (message.thread.type === 'channel' ? 'channel-' : 'user-') + message.thread.name;
+    var roomName = (message.messageType=== 'channel' ? 'channel-' + message.toChannel: 'user-' + message.toUser);
     socket.broadcast.to(roomName).emit('chat message', message);
   });
 
